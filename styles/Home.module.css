@@ -1,116 +1,174 @@
-.container {
-  padding: 0 2rem;
+@font-face {
+  font-family: "Poppins Bold";
+  src: url("../fonts/Poppins-Bold.ttf")
 }
 
-.main {
-  min-height: 100vh;
-  padding: 4rem 0;
-  flex: 1;
+@font-face {
+  font-family: "Poppins Medium";
+  src: url("../fonts/Poppins-Medium.ttf")
+}
+
+body{
+  font-family: "Poppins Medium";
+  color: white;
+
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+header{
+  padding: 20px 40px;
+  background-color: rgb(77, 7, 117);
+}
+
+header nav{
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+
+}
+
+
+
+header nav div#nav-menu ul{
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+}
+
+header nav div#nav-menu li{
+  /* display: inline; */
+}
+
+main section#landing{
+  background-image: url('../images/cover-image.jpg'), linear-gradient(rgba(237, 23, 23, 0.651),rgba(0, 0, 0, 0.65));
+  background-blend-mode: overlay;
+  height: 100vh;
+  background-size: cover;
+  background-position: bottom;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.footer {
-  display: flex;
-  flex: 1;
-  padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-}
-
-.title a {
-  color: #0070f3;
-  text-decoration: none;
-}
-
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
-}
-
-.title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
-}
-
-.title,
-.description {
-  text-align: center;
-}
-
-.description {
-  margin: 4rem 0;
-  line-height: 1.5;
-  font-size: 1.5rem;
-}
-
-.code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
-}
-
-.grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   flex-wrap: wrap;
-  max-width: 800px;
+  
+  /* background-color: rgba(214, 18, 18, 0.6); */
 }
 
-.card {
-  margin: 1rem;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
+main section#landing div {
+  width: 60%;
+  /* transform: translateY(200px); */
+  text-align: center;
+  line-height: 6vw;
+  
+}
+
+main section#landing div h1 {
+  
+  text-align: center;
+  font-size: 5vw;
+
+}
+
+main section#landing div > button{
+  padding: 10px;
+  background-color:rgb(77, 7, 117);
   border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  max-width: 300px;
+  border: none;
+  color:  white;
+  
+
 }
 
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
+
+main section#form{
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+
 }
 
-.card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
+form{
+  color:rgb(77, 7, 117);
+  flex-basis: 60% ;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
+form input{
+  border: none;
+  border-bottom: 1px solid grey ;
 }
 
-.logo {
-  height: 1em;
-  margin-left: 0.5rem;
+form input:focus{
+  border-bottom: 2px solid rgb(77, 7, 117);
+  outline: none;
+  transition: 5 all;
 }
 
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
+form button{
+  padding: 10px;
+  width: 80px;
+}
+
+
+
+
+
+
+@media (max-width: 600px){
+  header nav div#nav-menu{
+
+      position: absolute;
+      top: 50px;
+      display: none;
+      
   }
+
+  main section#landing div h1 {
+  
+      font-size: 10vw;
+  
+  }
+
+  main section#landing div {
+      width: 100%;
+      padding: 5px;
+      /* transform: translateY(200px); */
+      text-align: center;
+      line-height: 12vw;
+      
+  }
+
+  main section#landing{
+      height: 80vh;
+      background-size: cover;
+      background-position: bottom;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      
+      /* background-color: rgba(214, 18, 18, 0.6); */
+  }
+
+  form{
+      flex-basis: 90% ;
+  }
+
+  form h3{
+      text-align: center;
+      margin-bottom: 40px;
+  }
+  
+  
+  
 }
