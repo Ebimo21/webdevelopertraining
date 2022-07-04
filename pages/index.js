@@ -9,8 +9,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 export default function Home() {
+
   
   const element = <FontAwesomeIcon icon={faCoffee} />
+  const publicKey = process.env.NEXT_PUBLIC_publicKey;
   const amount = 100000
 
  
@@ -18,7 +20,7 @@ export default function Home() {
   const[email, setEmail] = useState("");
   const[firstName, setFirstName] = useState("");
   const[lastName, setLastName] = useState("");
-  const publicKey = process.env.NEXT_PUBLIC_publicKey;
+  
 
 
   const datar = { "firstName": firstName, "lastName": lastName, "email": email}
@@ -88,3 +90,5 @@ export default function Home() {
     </div>
   )
 }
+
+
