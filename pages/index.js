@@ -1,15 +1,18 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Main from '../components/Main'
 import { PaystackButton } from 'react-paystack'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 export default function Home() {
+
+  
+  const element = <FontAwesomeIcon icon={faCoffee} />
   const publicKey = process.env.NEXT_PUBLIC_publicKey;
-  console.log(publicKey);
   const amount = 100000
 
  
@@ -17,8 +20,25 @@ export default function Home() {
   const[email, setEmail] = useState("");
   const[firstName, setFirstName] = useState("");
   const[lastName, setLastName] = useState("");
-  console.log(firstName);
+  
+
+
+  const datar = { "firstName": firstName, "lastName": lastName, "email": email}
   // const[phone, setPhone] = useState("");
+
+  const apiCall = async()=>{
+   
+    let res = await fetch("http://localhost:3000/api/req", {
+        method: "POST",
+        headers: {
+          // Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(datar),
+    });
+
+    let data = await res.json();
+}
   const ComponentProps ={
     email,
     amount,
@@ -27,10 +47,22 @@ export default function Home() {
       lastName,
     },
     publicKey,
-    text: "Pay Now",
-    onSuccess: () => alert("success!"),
-    onClose: () => alert("Wait"),
+    text: "Register",
+    onSuccess: () => paymentSuccess(),
+    onClose: () => paymentClose(),
+  
   }
+
+  const paymentSuccess =() =>{
+    apiCall();
+    alert("success! This was a callback function")
+  }
+
+  const paymentClose = () =>{
+    apiCall();
+  }
+
+  
   return (
     <div >
       <Head>
@@ -39,7 +71,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header  className={`xl:px-10 xl:py-5 xl:bg-purple-800`} > 
+      <Header element={element} className={`xl:px-10 xl:py-5 xl:bg-purple-800`} > 
       </Header>
 
       <Main 
@@ -48,6 +80,7 @@ export default function Home() {
         setLastName={setLastName}
         PaystackButton={PaystackButton}
         ComponentProps={ComponentProps}
+        apiCall = {apiCall}
       ></Main>
 
       

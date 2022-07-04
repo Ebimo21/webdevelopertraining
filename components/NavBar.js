@@ -1,8 +1,9 @@
+import Link from 'next/link'
 import React from 'react'
 import Div from './Div'
 import Unordered from './Unordered'
 
-const NavBar = ({className}) => {
+const NavBar = ({element, className}) => {
   return (
     <nav className={className}>
         <Div >
@@ -12,13 +13,26 @@ const NavBar = ({className}) => {
         </Div>
 
         <Div>
+          <Link href={`#myForm`}>
+          <button className={`btn btn-sm`}>Register</button>
+
+          </Link>
+        </Div>
+
+        {/* <Div className={`flex`}>
             <Unordered className={`xl:p-0 list-none flex gap-5 sm:absolute sm:top-12 sm:hidden `}>
                 <li>Section</li>
                 <li>Section</li>
                 <li>Section</li>
-                <li>Section</li>
+                <li>Section</li> 
             </Unordered>
-        </Div>
+        </Div> */}
+
+
+        
+        
+
+        
 
         
     </nav>
