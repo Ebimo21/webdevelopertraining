@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
@@ -8,24 +9,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 export default function Home() {
+  const host = process.env.NEXT_PUBLIC_hostname
+  console.log(host)
   const element = <FontAwesomeIcon icon={faCoffee} />
   const publicKey = process.env.NEXT_PUBLIC_publicKey;
   const amount = 100000
+  
   
   const[email, setEmail] = useState("");
   const[firstName, setFirstName] = useState("");
   const[lastName, setLastName] = useState("");
   const[phone, setPhone] = useState("");  
   const formData = { "firstName": firstName, "lastName": lastName, "email": email}
-  var host;
 
-  useEffect(()=>{
-     host = window.location.host
-  
-    }, [])
-    
   const apiCall = async()=>{
-     await fetch(`http://${host}/api/req`, {
+     await fetch(`${host}/api/req`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
@@ -55,8 +53,6 @@ export default function Home() {
   const paymentClose = () =>{
     apiCall();
   }
-
-  
   
   return (
     <div >
