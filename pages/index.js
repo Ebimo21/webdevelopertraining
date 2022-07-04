@@ -28,7 +28,7 @@ export default function Home() {
 
   const apiCall = async()=>{
    
-    let res = await fetch("http://localhost:3000/api/req", {
+    let res = await fetch("https://webdevelopertraining.vercel.app/api/req", {
         method: "POST",
         headers: {
           // Accept: 'application/json',
