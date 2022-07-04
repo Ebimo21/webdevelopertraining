@@ -18,7 +18,7 @@ export default function Home() {
   const[email, setEmail] = useState("");
   const[firstName, setFirstName] = useState("");
   const[lastName, setLastName] = useState("");
-  const publicKey = "pk_test_9cc147504066a4577a2ac4525acb5dbe0d534597";
+  const publicKey = process.env.NEXT_PUBLIC_publicKey;
 
 
   const datar = { "firstName": firstName, "lastName": lastName, "email": email}
