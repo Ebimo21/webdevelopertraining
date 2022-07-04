@@ -8,7 +8,8 @@ import { PaystackButton } from 'react-paystack'
 
 
 export default function Home() {
-  const publicKey ="pk_test_9cc147504066a4577a2ac4525acb5dbe0d534597"
+  const publicKey = process.env.NEXT_PUBLIC_publicKey;
+  console.log(publicKey);
   const amount = 100000
 
  
@@ -56,3 +57,5 @@ export default function Home() {
     </div>
   )
 }
+
+
