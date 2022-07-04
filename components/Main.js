@@ -1,23 +1,61 @@
+import Image from 'next/image'
 import Script from 'next/script'
 import React from 'react'
 import Div from './Div'
 import Section from './Section'
 
-const Main = ({setEmail, setFirstName, setLastName, PaystackButton, ComponentProps}) => {
+const Main = ({setEmail, setFirstName, setLastName, PaystackButton, ComponentProps, apiCall}) => {
+
+  
   return (
     <main >
-        <Section className={` xl:bg-[url("/images/cover-image.jpg")] xl:bg-[#00000085] xl:bg-blend-overlay xl:h-screen xl:bg-bottom xl:flex xl:flex-col xl:justify-center xl:items-center xl:flex-wrap xl:bg-cover
+        <Section className={` xl:bg-[url("/images/cover-image.jpg")] xl:bg-[#00000085] xl:bg-blend-overlay xl:h-[90vh] xl:bg-bottom xl:flex xl:flex-col xl:justify-center xl:items-center xl:flex-wrap xl:bg-cover
         
         sm:h-[80vh] sm:bg-cover sm:bg-bottom sm:flex sm:flex-col sm:wrap sm:items-center sm:justify-center`}>
-            <Div className={`xl:leading-[6vw] xl:text-center xl:w-8/12 sm:w-full p-1 text-center leading-[12vw]`}>
-                <h1 className={`xl:text-center text-[5vw] sm:text-[10vw]`}>Become a Frontend Web Developer!</h1>
-                <p1>Sign up to Mastery</p1>
+            <Div className={`xl:leading-[4vw] xl:text-center xl:w-[50%] sm:w-full p-1 text-center sm:leading-[10vw]`}>
+                <h1 className={`xl:text-center xl:text-[4vw] sm:text-[10vw] xl:mb-10`}>Become a Frontend Web Developer!</h1>
+                
+                <p className={``}>Sign up to Mastery</p>
             </Div>
 
             <Div>
-                <button className={`xl:p-3 xl:bg-purple-800 rounded-xl border-none text-white`} type="button">Get Started</button>
+                <button onClick={apiCall} className={`btn xl:bg-purple-600 `} type="button">Get Started</button>
             </Div>
         </Section>
+
+        {/* <Section className={``}>
+            <div className={`xl:text-gray-700 xl:text-center`}>
+                <div className={``}>
+                    <div>
+                        <h2>What You Will Learn:</h2>
+                    </div>
+
+                    <div className={`xl:flex xl:justify-center  xl:gap-10
+                                     sm:flex-col `}>
+                        <div className={`sm:flex sm:flex-col sm:justify-center sm:items-center `}>
+                            <h3 className={`sm:flex sm:flex-col sm:items-center `}>HTML</h3>
+                            <div className={`xl:w-[200px] xl:h-[200px] xl:relative`}>
+                                <Image  src={`/images/html.png`}  layout={`fill`} objectFit={`contain`} />
+                            </div>
+                        </div>
+                        <div className={`sm:flex sm:flex-col sm:justify-center sm:items-center`}>
+                            <h3 className={`sm:flex sm:flex-col sm:items-center `}>CSS</h3>
+                            <div className={`xl:w-[200px] xl:h-[200px] xl:relative`}>
+                                <Image  src={`/images/css.png`}  layout={`fill`} objectFit={`contain`} />
+                            </div>
+                        </div>
+                        <div className={`sm:flex sm:flex-col sm:justify-center sm:items-center`}>
+                            <h3 className={`sm:flex sm:flex-col sm:items-center`}>JavaScript</h3>
+                            <div className='relative '>
+                            <div className={`xl:w-[200px] xl:h-[200px] xl:relative`}>
+                                <Image  src={`/images/js.png`}  layout={`fill`} objectFit={`contain`} />
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </Section> */}
 
         <Section className={`xl:p-20 xl:flex xl:flex-wrap xl:justify-center p-5`}>
         <form className={`xl:text-purple-800 xl:basis-[60%] xl:flex xl:flex-col xl:justify-center sm:basis-11/12`} id="myForm" action="">
@@ -39,14 +77,15 @@ const Main = ({setEmail, setFirstName, setLastName, PaystackButton, ComponentPro
                 <input className={` xl:border-solid xl:border-b-2 xl:border-gray-600 xl:focus:outline-none xl:focus:border-solid xl:focus:border-b-2 xl:focus:border-purple-800 `} id="email" type="email" name="email" placeholder="Enter your email"
                 onChange={(e)=>setEmail(e.target.value)} />
                 <br />
+                <Script src="https://js.paystack.co/v1/inline.js" type={`text/javascript`}></Script>
+                {/* <script ></script> */}
+
             </form>
-            <Div className={`xl:basis-full xl:basis-[60%] xl:flex xl:justify-center`}>
+            <Div className={` xl:basis-[60%] xl:flex xl:justify-center`}>
                 <PaystackButton className='paystack-button btn ' {...ComponentProps} />
             </Div>
         </Section>
-        <Script src="https://js.paystack.co/v1/inline.js"></Script>
 
-        <Script></Script>
     </main>
   )
 }
