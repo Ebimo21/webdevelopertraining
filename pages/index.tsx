@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Main from '../components/Main'
@@ -9,7 +9,7 @@ import { PaystackButton } from 'react-paystack'
 export default function Home() {
   const host = process.env.NEXT_PUBLIC_hostname
   const publicKey = process.env.NEXT_PUBLIC_publicKey;
-  const amount = 100000
+  const amount = 50000
 
   const[email, setEmail] = useState("");
   const[firstName, setFirstName] = useState("");
@@ -33,6 +33,7 @@ export default function Home() {
     metadata: {
       firstName,
       lastName,
+      phone
     },
     publicKey,
     text: "Register",
@@ -42,6 +43,7 @@ export default function Home() {
 
   const paymentSuccess =() =>{
     apiCall();
+    alert("succes");
     window.location.replace("https://webdevelopertraining.vercel.app");
   }
   
@@ -49,6 +51,37 @@ export default function Home() {
     apiCall();
     window.location.replace("https://webdevelopertraining.vercel.app");
   }
+
+  const calculateTimeLeft = () => {
+    const difference = +new Date("Aug 1, 2022 00:00:00") - +new Date();
+    
+    let timeLeft:{days: number, hours: number, minutes: number, seconds: number} = {
+      days:0,
+      hours: 0,
+      minutes: 0,
+      seconds: 0,
+    };
+
+    if (difference > 0) {
+      timeLeft = {
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+        minutes: Math.floor((difference / 1000 / 60) % 60),
+        seconds: Math.floor((difference / 1000) % 60),
+      };
+    }
+
+    return timeLeft
+  };
+
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+
+  useEffect(() => {
+    setTimeout(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);   
+  
+  })
   
   return (
     <div >
@@ -65,6 +98,8 @@ export default function Home() {
       </Header>
 
       <Main 
+        setPhone={setPhone}
+        timeLeft={timeLeft}
         setEmail={setEmail}
         setFirstName={setFirstName}
         setLastName={setLastName}
@@ -82,3 +117,28 @@ export default function Home() {
 }
 
 
+
+
+
+
+
+  // const[days, setDays] = useState<number>(0)
+  // const[seconds, setSeconds] = useState<number>(0)
+  // const[hours, setHours] = useState<number>(0)
+  // const[minutes, setMinutes] = useState<number>(0)
+  // const[distance, setDistance] = useState<number>(0)
+  // const[countDownDate, setCountDownDate] = useState<number>(new Date("Aug 1, 2022 00:00:00").getTime())
+  // const[now, setNow] = useState<number>(new Date().getTime())
+
+   // var counter = setInterval(function() {
+    //   setNow(new Date().getTime())
+    //   setDistance(countDownDate - now);
+    //   setDays(Math.floor(distance / (1000 * 60 * 60 * 24)));
+    //   setHours (Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)))
+    //   setMinutes (Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
+    //   setSeconds(Math.floor((distance % (1000 * 60)) / 1000));
+    //   // console.log(distance)
+    //   if (distance < 0) {
+    //     clearInterval(counter);
+    //   }
+    // }, 1000);
