@@ -4,10 +4,10 @@ module.exports = {
   "./components/**/*.{js,ts,jsx,tsx}",],
   theme: {
     screens: {
-      '2xl': {'max': '1535px'},
+      '2xl': {'max': '2535px'},
       // => @media (max-width: 1535px) { ... }
 
-      'xl': {'max': '1280px'},
+      'xl': {'max': '1880px'},
       // => @media (max-width: 1280px) { ... }
 
       'lg': {'max': '1023px'},
