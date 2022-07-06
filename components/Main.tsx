@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import Script from 'next/script'
 import React from 'react'
 import Div from './Div'
@@ -15,38 +16,48 @@ const Main = ({timeLeft, setEmail, setFirstName, setLastName, setPhone, Paystack
             </Div>
 
             <Div>
-                <button onClick={apiCall} className={`btn xl:bg-purple-600 `} type="button">Get Started</button>
+                <Link href={`#register`}>
+                    <button className={`btn xl:bg-purple-600 `} type="button">Get Started</button>
+                </Link>
             </Div>
         </Section>
 
         <Section className={`xl:p-20 xl:flex xl:flex-wrap xl:justify-center p-5 xl:flex-wrap`}>
-            <Section className={`xl:basis-[100%] xl:flex xl:justify-center xl:mb-20 `}>
+            <Section className={`xl:basis-[100%] xl:flex xl:justify-center xl:mb-10 `}>
                 <Div>
-                    <h2 className='xl:text-gray-900 xl:text-center xl:font-bold xl:text-2xl xl:p-2'>Count Down</h2>
-                <div className="grid grid-flow-col gap-5 text-center auto-cols-max">
-                    <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-                        <span className="countdown font-mono text-5xl">
-                        <span style={{"--value": timeLeft.days} as React.CSSProperties}></span>
+                    <h2 id='register' className='xl:text-gray-900 xl:text-center xl:font-bold xl:text-lg xl:p-2'>Count Down</h2>
+                <div className="grid grid-flow-col gap-1 text-center auto-cols-max">
+                    <div className="flex flex-col p-2 w-[60px] bg-neutral rounded-box text-neutral-content">
+                        <span className="countdown block font-mono text-lg ">
+                        <span className='text-center' style={{"--value": timeLeft.days} as React.CSSProperties}></span>
                         </span>
+                        <span className='text-xs'>
                         days
-                    </div> 
-                    <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-                        <span className="countdown font-mono text-5xl">
-                        <span style={{"--value": timeLeft.hours} as React.CSSProperties} ></span>
                         </span>
+                    </div> 
+    1             <div className="flex flex-col p-2 w-[60px] bg-neutral rounded-box text-neutral-content">
+                        <span className="countdown block font-mono text-lg ">
+                        <span className='text-center' style={{"--value": timeLeft.hours} as React.CSSProperties} ></span>
+                        </span>
+                        <span className='text-xs'>
                         hours
-                    </div> 
-                    <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-                        <span className="countdown font-mono text-5xl">
-                        <span style={{"--value":timeLeft.minutes} as React.CSSProperties}></span>
                         </span>
+                    </div> 
+    1             <div className="flex flex-col p-2 w-[60px] bg-neutral rounded-box text-neutral-content">
+                        <span className="countdown block font-mono text-lg ">
+                        <span className='text-center' style={{"--value":timeLeft.minutes} as React.CSSProperties}></span>
+                        </span>
+                        <span className='text-xs'>
                         min
-                    </div> 
-                    <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-                        <span className="countdown font-mono text-5xl">
-                        <span style={{"--value":timeLeft.seconds}as React.CSSProperties}></span>
                         </span>
+                    </div> 
+    1             <div className="flex flex-col p-2 w-[60px] bg-neutral rounded-box text-neutral-content">
+                        <span className="countdown block font-mono text-lg ">
+                        <span className='text-center' style={{"--value":timeLeft.seconds}as React.CSSProperties}></span>
+                        </span>
+                        <span className='text-xs'>
                         sec
+                        </span>
                     </div>
                 </div>
                 </Div>
