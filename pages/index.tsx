@@ -9,7 +9,7 @@ import { PaystackButton } from 'react-paystack'
 export default function Home() {
   const host = process.env.NEXT_PUBLIC_hostname
   const publicKey = process.env.NEXT_PUBLIC_publicKey;
-  const amount = 50000
+  const amount = 50000 * 100
 
   const[email, setEmail] = useState("");
   const[firstName, setFirstName] = useState("");
