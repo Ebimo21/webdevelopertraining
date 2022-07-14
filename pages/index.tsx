@@ -61,7 +61,6 @@ export default function Home() {
       minutes: 0,
       seconds: 0,
     };
-    console.log(difference)
 
     if (difference > 0) {
       timeLeft = {
