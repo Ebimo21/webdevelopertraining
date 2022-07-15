@@ -14,6 +14,7 @@ const {Prisma} = require('@prisma/client');
                 firstName: datas.firstName,
                 lastName: datas.lastName,
                 email: datas.email,
+                phone: datas.phone
             }
         });
         

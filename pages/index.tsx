@@ -4,6 +4,7 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Main from '../components/Main'
 import { PaystackButton } from 'react-paystack'
+// import { setTimeout } from 'timers/promises'
 
 
 export default function Home() {
@@ -15,7 +16,7 @@ export default function Home() {
   const[firstName, setFirstName] = useState("");
   const[lastName, setLastName] = useState("");
   const[phone, setPhone] = useState("");  
-  const formData = { "firstName": firstName, "lastName": lastName, "email": email}
+  const formData = { "firstName": firstName, "lastName": lastName, "email": email, "phone": phone}
 
   const apiCall = async()=>{
      await fetch(`${host}/api/req`, {
@@ -49,7 +50,9 @@ export default function Home() {
   
   const paymentClose = () =>{
     apiCall();
-    window.location.replace("https://webdevelopertraining.vercel.app");
+    setTimeout(() => {
+      window.location.replace(host);
+    }, 3000); 
   }
 
   const calculateTimeLeft = () => {
