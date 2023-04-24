@@ -45,7 +45,9 @@ export default function Home() {
   const paymentSuccess =() =>{
     apiCall();
     alert("succes");
-    window.location.replace("https://webdevelopertraining.vercel.app");
+    setTimeout(() => {
+      window.location.replace(host);
+    }, 3000);
   }
   
   const paymentClose = () =>{
@@ -56,7 +58,7 @@ export default function Home() {
   }
 
   const calculateTimeLeft = () => {
-    const difference = +new Date("Aug 1, 2022 00:00:00") - +new Date();
+    const difference = +new Date("mar 12, 2023 00:00:00") - +new Date();
     
     let timeLeft:{days: number, hours: number, minutes: number, seconds: number} = {
       days:0,

@@ -35,7 +35,7 @@ const Main = ({timeLeft, setEmail, setFirstName, setLastName, setPhone, Paystack
                         days
                         </span>
                     </div> 
-    1             <div className="flex flex-col p-2 w-[60px] bg-neutral rounded-box text-neutral-content">
+                 <div className="flex flex-col p-2 w-[60px] bg-neutral rounded-box text-neutral-content">
                         <span className="countdown block font-mono text-lg ">
                         <span className='text-center' style={{"--value": timeLeft.hours} as React.CSSProperties} ></span>
                         </span>
@@ -43,7 +43,7 @@ const Main = ({timeLeft, setEmail, setFirstName, setLastName, setPhone, Paystack
                         hours
                         </span>
                     </div> 
-    1             <div className="flex flex-col p-2 w-[60px] bg-neutral rounded-box text-neutral-content">
+                 <div className="flex flex-col p-2 w-[60px] bg-neutral rounded-box text-neutral-content">
                         <span className="countdown block font-mono text-lg ">
                         <span className='text-center' style={{"--value":timeLeft.minutes} as React.CSSProperties}></span>
                         </span>
@@ -51,7 +51,7 @@ const Main = ({timeLeft, setEmail, setFirstName, setLastName, setPhone, Paystack
                         min
                         </span>
                     </div> 
-    1             <div className="flex flex-col p-2 w-[60px] bg-neutral rounded-box text-neutral-content">
+                 <div className="flex flex-col p-2 w-[60px] bg-neutral rounded-box text-neutral-content">
                         <span className="countdown block font-mono text-lg ">
                         <span className='text-center' style={{"--value":timeLeft.seconds}as React.CSSProperties}></span>
                         </span>
